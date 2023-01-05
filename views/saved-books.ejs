@@ -1,0 +1,42 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layouts/header');-%>
+
+  <body>
+    <%- include('layouts/navbar');-%>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('/img/black.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="container">
+            <h1 class="text-center">Saved Books :</h1>
+            <ul class="list-group">
+              <% bookposts.forEach(book => { %>
+              <li class="list-group-item"><%= book.title %></li>
+              <%})%>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <%- include('layouts/footer');-%> <%- include('layouts/scripts');-%>
+  </body>
+</html>

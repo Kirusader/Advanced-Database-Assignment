@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="js/search-books.js"></script>
+</head>
+<%- include('layouts/header');-%>
+
+  <body>
+
+    <%- include('layouts/navbar');-%>
+
+      <!-- Page Header -->
+      <header class="masthead" style="background-image: url('/img/black.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <div class="page-heading">
+                <h1>📗Search Book📗</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <form>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Type any text" id="searchInput" />
+                <br>
+                <div class="input-group-append">
+                  <button onclick="handleSubmit()" class="btn btn-primary" type="button">
+                    📖 Search Books 📖
+                  </button>
+                </div>
+            </form>
+            <div id="bookItems"></div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+     
+      <%- include('layouts/footer');-%>
+
+        <%- include('layouts/scripts');-%>
+
+  </body>
+
+</html>

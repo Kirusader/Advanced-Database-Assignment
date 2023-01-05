@@ -1,0 +1,131 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layouts/header');-%>
+
+  <body>
+    <%- include('layouts/navbar');-%>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('/img/black.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>Add New Book</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <form
+            action="/posts/store"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Title"
+                  id="title"
+                  name="title"
+                />
+              </div>
+            </div>
+            <br />
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Author</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="authors"
+                  name="authors"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Avarage Rating</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="average_rating"
+                  name="average_rating"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Book ISBN</label>
+                <input type="text" class="form-control" id="isbn" name="isbn" />
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Text Review Count</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="text_reviews_count"
+                  name="text_reviews_count"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Publication_Date</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="publication_date"
+                  name="publication_date"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Book Publisher</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="publisher"
+                  name="publisher"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br />
+            <div id="success"></div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="sendMessageButton"
+            >
+              Upload
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <%- include('layouts/footer');-%> <%- include('layouts/scripts');-%>
+  </body>
+</html>

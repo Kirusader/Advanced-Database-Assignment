@@ -1,0 +1,184 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layouts/header');-%>
+
+  <body>
+    <!-- Navigation -->
+    <%- include('layouts/navbar');-%>
+
+    <!-- Page Header -->
+    <header class="masthead">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1 style="padding-bottom: 2rem">Elite Book Store</h1>
+              <span class="subheading"
+                ><b>
+                  <h2>Ideal Place For Knowledge</h2>
+                </b>
+              </span>
+              <h2>
+                There are <strong><%= totlBooks %></strong> books available to
+                be owned by you which are written by a total of
+                <strong><%= totalAuthors %></strong> world famous writters.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <% bookposts.forEach (book =>{ %>
+          <div class="post-preview" style="color: rgb(3, 3, 3)">
+            <a href="/post/<%= book._id%>">
+              <h2 class="post-title">
+                Book Title:&ensp; <%= book.title %>
+              </h2>
+            </a>
+            <label for="text"><b>Book Author:&ensp;</b> </label><%=
+            book.authors %>
+            <br />
+            <label for="text"><b>Book Star Rating:&ensp;</b> </label><%=
+            book.average_rating %>
+            <br />
+            <label for="text"><b>Book Publisher:&ensp;</b> </label><%=
+            book.publisher %>
+            <br />
+            <label for="text"><b>Publication Date:&ensp;</b> </label><%=
+            book.publication_date.toLocaleDateString() %>
+            <br />
+            <p class="post-meta">
+              <Posted by> </Posted>
+            </p>
+          </div>
+          <hr />
+          <%});%>
+          <!-- Pager -->
+          <div clearfix>
+            <a class="btn btn-primary float-right" href="#"
+              >Older Posts &rarr;</a
+            >
+            <br>
+            <br>
+            <ul class="pagination">
+              <% if (currentPage === 1) { %>
+
+              <li class="class="page-item disabled">
+                <a class="btn btn-primary float-right" href="#">First</a>
+              </li>
+              <% } %> <% if (currentPage > 1) { %>
+              <li class="clearfix">
+                <a class="btn btn-primary float-right" href="/">First</a>
+              </li>
+              <% } %>
+
+              <li class="clearfix">
+                <a
+                  class="btn btn-primary float-right"
+                  href="/?page=<%= currentPage === numberOfPages ? currentPage - 10 :  currentPage + 1 %>"
+                  ><%= currentPage === numberOfPages ? currentPage - 10 :
+                  currentPage + 1 %></a
+                >
+              </li>
+              <li class="clearfix">
+                <a
+                  class="btn btn-primary float-right"
+                  href="/?page=<%= currentPage === numberOfPages ? currentPage - 9 :  currentPage + 2 %>"
+                  ><%= currentPage === numberOfPages ? currentPage - 9 :
+                  currentPage + 2 %></a
+                >
+              </li>
+              <li class="clearfix">
+                <a
+                  class="btn btn-primary float-right"
+                  href="/?page=<%= currentPage === numberOfPages ? currentPage - 8 :  currentPage + 3 %>"
+                  ><%= currentPage === numberOfPages ? currentPage - 8 :
+                  currentPage + 3 %></a
+                >
+              </li>
+              <li class="clearfix">
+                <a
+                  class="btn btn-primary float-right"
+                  href="/?page=<%= currentPage === numberOfPages ? currentPage - 7 :  currentPage + 4 %>"
+                  ><%= currentPage === numberOfPages ? currentPage - 7 :
+                  currentPage + 4 %></a
+                >
+              </li>
+              <li class="clearfix">
+                <a
+                  class="btn btn-primary float-right"
+                  href="/?page=<%= currentPage === numberOfPages ? currentPage - 6 :  currentPage + 5 %>"
+                  ><%= currentPage === numberOfPages ? currentPage - 6 :
+                  currentPage + 5 %></a
+                >
+              </li>
+              <li class="clearfix">
+                <a
+                  class="btn btn-primary float-right"
+                  href="/?page=<%= currentPage === numberOfPages ? currentPage - 5 :  currentPage + 6 %>"
+                  ><%= currentPage === numberOfPages ? currentPage - 5 :
+                  currentPage + 6 %></a
+                >
+              </li>
+              <li class="clearfix">
+                <a
+                  class="btn btn-primary float-right"
+                  href="/?page=<%= currentPage === numberOfPages ? currentPage - 4 :  currentPage + 7 %>"
+                  ><%= currentPage === numberOfPages ? currentPage - 4 :
+                  currentPage + 7 %></a
+                >
+              </li>
+              <li class="clearfix">
+                <a
+                  class="btn btn-primary float-right"
+                  href="/?page=<%= currentPage === numberOfPages ? currentPage - 3 :  currentPage + 8 %>"
+                  ><%= currentPage === numberOfPages ? currentPage - 3 :
+                  currentPage + 8 %></a
+                >
+              </li>
+              <li class="clearfix">
+                <a
+                  class="btn btn-primary float-right"
+                  href="/?page=<%= currentPage === numberOfPages ? currentPage - 2 :  currentPage + 9 %>"
+                  ><%= currentPage === numberOfPages ? currentPage - 2 :
+                  currentPage + 9 %></a
+                >
+              </li>
+              <li class="clearfix">
+                <a
+                  class="btn btn-primary float-right"
+                  href="/?page=<%= currentPage === numberOfPages ? currentPage - 1 :  currentPage + 10 %>"
+                  ><%= currentPage === numberOfPages ? currentPage - 1 :
+                  currentPage + 10 %></a
+                >
+              </li>
+
+              <% if (currentPage === numberOfPages) { %>
+
+              <li class="clearfix disabled">
+                <a class="btn btn-primary float-right" href="">Last</a>
+              </li>
+              <% } %> <% if (currentPage < numberOfPages) { %>
+              <li class="clearfix">
+                <a class="btn btn-primary float-right" href="/?page=<%= numberOfPages %>">Last</a>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <%- include('layouts/footer');-%> <%- include('layouts/scripts');-%>
+  </body>
+</html>

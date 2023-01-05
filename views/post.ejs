@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('layouts/header');-%>
+
+<body>
+
+  <!-- Navigation -->
+  <%- include('layouts/navbar');-%>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/black.jpg')">
+
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+          
+            <h4><strong>Welcome To</strong></h4>
+            <h1>Elite Book Store</h1>
+            <span class="subheading">Ideal Place For Knowledge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <% bookpost.forEach (book =>{ %>
+        <div class="post-preview">
+          <a href="/post/<%=book._id%>">
+            <h2 class="post-title">
+              <%=book.title %>
+            </h2>
+          </a>
+          <label for="text"><b>Book Author:&ensp;</b> </label><%=
+            book.authors %>
+            <br />
+            <label for="text"><b>Book Star Rating:&ensp;</b> </label><%=
+            book.average_rating %>
+            <br />
+            <label for="text"><b>Book Publisher:&ensp; </b> </label><%=
+            book.publisher %>
+          <br>
+
+          <p class="post-meta">
+            <Posted by>
+              <a href="#" style="text-decoration: none;"></a>
+              <br>
+              <b> Added on </b><%=book.datePosted.toDateString() %>
+            </Posted>
+          </p>
+          <a class="btn btn-primary float-right" href="/update/<%=book.id %>"><span
+              class="glyphicon glyphicon-edit"></span> Edit</a>
+          <a href="/delete/<%=book.id %>" class="btn btn-danger btn-xs"><span
+              class="glyphicon glyphicon-remove"></span> Delete</a>
+
+        </div>
+        <hr>
+        <%});%>
+        <!-- Pager -->
+        <div clearfix>
+        <br>
+        <br>
+          <ul class="pagination" style="padding: 4px;">
+            <% if (currentPage === 1) { %>
+             
+            <li class="class="page-item disabled">
+              <a class="btn btn-primary float-right" href="#">First</a>
+            </li>
+            <% } %> <% if (currentPage > 1) { %>
+            <li class="clearfix">
+              <a class="btn btn-primary float-right" href="/post">First</a>
+            </li>
+            <% } %>
+
+            <li class="clearfix">
+              <a
+                class="btn btn-primary float-right"
+                href="/post?page=<%= currentPage === numberOfPages ? currentPage - 10 :  currentPage + 1 %>"
+                ><%= currentPage === numberOfPages ? currentPage - 10 :
+                currentPage + 1 %></a
+              >
+            </li>
+            <li class="clearfix">
+              <a
+                class="btn btn-primary float-right"
+                href="/post?page=<%= currentPage === numberOfPages ? currentPage - 9 :  currentPage + 2 %>"
+                ><%= currentPage === numberOfPages ? currentPage - 9 :
+                currentPage + 2 %></a
+              >
+            </li>
+            <li class="clearfix">
+              <a
+                class="btn btn-primary float-right"
+                href="/post?page=<%= currentPage === numberOfPages ? currentPage - 8 :  currentPage + 3 %>"
+                ><%= currentPage === numberOfPages ? currentPage - 8 :
+                currentPage + 3 %></a
+              >
+            </li>
+            <li class="clearfix">
+              <a
+                class="btn btn-primary float-right"
+                href="/post?page=<%= currentPage === numberOfPages ? currentPage - 7 :  currentPage + 4 %>"
+                ><%= currentPage === numberOfPages ? currentPage - 7 :
+                currentPage + 4 %></a
+              >
+            </li>
+            <li class="clearfix">
+              <a
+                class="btn btn-primary float-right"
+                href="/post?page=<%= currentPage === numberOfPages ? currentPage - 6 :  currentPage + 5 %>"
+                ><%= currentPage === numberOfPages ? currentPage - 6 :
+                currentPage + 5 %></a
+              >
+            </li>
+            <li class="clearfix">
+              <a
+                class="btn btn-primary float-right"
+                href="/post?page=<%= currentPage === numberOfPages ? currentPage - 5 :  currentPage + 6 %>"
+                ><%= currentPage === numberOfPages ? currentPage - 5 :
+                currentPage + 6 %></a
+              >
+            </li>
+            <li class="clearfix">
+              <a
+                class="btn btn-primary float-right"
+                href="/post?page=<%= currentPage === numberOfPages ? currentPage - 4 :  currentPage + 7 %>"
+                ><%= currentPage === numberOfPages ? currentPage - 4 :
+                currentPage + 7 %></a
+              >
+            </li>
+            <li class="clearfix">
+              <a
+                class="btn btn-primary float-right"
+                href="/post?page=<%= currentPage === numberOfPages ? currentPage - 3 :  currentPage + 8 %>"
+                ><%= currentPage === numberOfPages ? currentPage - 3 :
+                currentPage + 8 %></a
+              >
+            </li>
+            <li class="clearfix">
+              <a
+                class="btn btn-primary float-right"
+                href="/post?page=<%= currentPage === numberOfPages ? currentPage - 2 :  currentPage + 9 %>"
+                ><%= currentPage === numberOfPages ? currentPage - 2 :
+                currentPage + 9 %></a
+              >
+            </li>
+            <li class="clearfix">
+              <a
+                class="btn btn-primary float-right"
+                href="/post?page=<%= currentPage === numberOfPages ? currentPage - 1 :  currentPage + 10 %>"
+                ><%= currentPage === numberOfPages ? currentPage - 1 :
+                currentPage + 10 %></a
+              >
+            </li>
+
+            <% if (currentPage === numberOfPages) { %>
+
+            <li class="clearfix disabled">
+              <a class="btn btn-primary float-right" href="">Last</a>
+            </li>
+            <% } %> <% if (currentPage < numberOfPages) { %>
+            <li class="clearfix">
+              <a class="btn btn-primary float-right" href="/post?page=<%= numberOfPages %>">Last</a>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <%- include('layouts/footer');-%>
+
+        <%- include('layouts/scripts');-%>
+
+</body>
+
+</html>
